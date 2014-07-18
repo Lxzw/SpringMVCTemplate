@@ -10,7 +10,7 @@ import com.moke.springmvctest.domain.value.PersonID;
 
 @Entity
 @Table(name="tb_account")
-public class Account {
+public class Account  {
 	PersonID id;
 	String username;
 	String password;

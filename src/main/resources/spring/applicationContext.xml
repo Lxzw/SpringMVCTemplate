@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-    
-    <!-- Uncomment and add your base-package here:
-         <context:component-scan
-            base-package="org.springframework.samples.service"/>  -->
-	<context:annotation-config />
-<!-- 设置数据源 -->
-    <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-    	<property name="url" value="jdbc:mysql://192.168.1.200:3306/MokeTemplate"/>
-    	<property name="username" value="moke" />
-    	<property name="password" value="86707362" />
-    </bean>
-<!-- 设置sessionFactory对象 -->
-	<bean id="sessionFactory" 
+
+	<!-- Uncomment and add your base-package here: <context:component-scan base-package="org.springframework.samples.service"/> -->
+	<!-- <context:annotation-config /> -->
+	<context:component-scan base-package="com.moke.springmvctest.domain" />
+	<!-- 设置数据源 -->
+	<bean name="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://192.168.1.200:3306/MokeTemplate" />
+		<property name="username" value="moke" />
+		<property name="password" value="86707362" />
+	</bean>
+	<!-- 设置sessionFactory对象 -->
+	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource"/>
-		<property name="annotatedPackages" value="com.moke.springmvctest.domain"/>
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses" value="com.moke.springmvctest.domain.DBTest" />
+
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect </prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.connection.pool_size ">5</prop>
 				<prop key="hibernate.current_session_context_class">thread</prop>
 			</props>
 		</property>
+
+
 	</bean>
 	<!-- 定义aop和transaction -->
 </beans>

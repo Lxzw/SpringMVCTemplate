@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.moke.springmvctest.dao.AccountDao;
 import com.moke.springmvctest.domain.Account;
+import com.moke.springmvctest.domain.DBTest;
 import com.moke.springmvctest.domain.value.PersonID;
 
 @RunWith(SpringJUnit4ClassRunner.class)//测试类
@@ -27,7 +28,7 @@ public class AccountDaoImpTest {
 	@Resource
 	private DriverManagerDataSource dataSource;
 	@Resource
-	private SessionFactory sessionFactory;
+	private  SessionFactory sessionFactory;
 	
 	@Test
 	public void test() {
@@ -44,6 +45,15 @@ public class AccountDaoImpTest {
 		session.save(account);
 		session.getTransaction().commit();
 		
+	}
+	
+	@Test
+	public void test1() {
+		DBTest dbTest = new DBTest();
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		session.save(dbTest);
+		session.getTransaction().commit();
 	}
 
 }
