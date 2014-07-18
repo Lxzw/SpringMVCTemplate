@@ -4,7 +4,10 @@ import java.sql.Date;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.moke.springmvctest.domain.value.PersonID;
 
@@ -17,6 +20,9 @@ public class Account  {
 	Date createDate;
 	
 	@EmbeddedId
+	@GeneratedValue(generator="system_uuid")
+	@GenericGenerator(name="system_uuid",strategy="uuid")
+	
 	public PersonID getId() {
 		return id;
 	}

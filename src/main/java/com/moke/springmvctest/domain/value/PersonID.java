@@ -4,20 +4,27 @@ import java.io.Serializable;
 
 import javax.persistence.Embeddable;
 
+
 //用户值对象
 @Embeddable
 public class PersonID implements Serializable {
-	private String id;
+	private static final long serialVersionUID = -4469143325886577745L;
+	private Integer id;
 	
-	public PersonID(String id) {
-		this.id = id;
+
+	public PersonID(Integer id) {
+		this.setId(id);
 	}
 	
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 	
 	public String toString() {
-		return getId();
+		return getId() + "";
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 }

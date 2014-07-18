@@ -33,7 +33,7 @@ public class AccountDaoImpTest {
 	@Test
 	public void test() {
 		//fail("Not yet implemented");
-		PersonID id = new PersonID("00001");
+		PersonID id = new PersonID(00003);
 		Session session = sessionFactory.getCurrentSession();
 		
 		Account account = new Account();
