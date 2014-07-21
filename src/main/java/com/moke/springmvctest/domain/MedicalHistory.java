@@ -17,7 +17,6 @@ public class MedicalHistory implements Serializable {
 	private static final long serialVersionUID = 2L;
 
 	@Id Integer id;
-	
 	@MapsId @OneToOne
 	@JoinColumn(name="patient_id")
 	Person patient;

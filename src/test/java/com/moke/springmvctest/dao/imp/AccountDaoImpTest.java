@@ -13,9 +13,7 @@ import org.junit.runner.RunWith;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.moke.springmvctest.dao.AccountDao;
 import com.moke.springmvctest.domain.Account;
 import com.moke.springmvctest.domain.DBTest;
 import com.moke.springmvctest.domain.value.PersonID;
